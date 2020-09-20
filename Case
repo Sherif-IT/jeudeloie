@@ -1,0 +1,29 @@
+
+public class Case implements Icase{
+
+	private int numCase;
+	
+		
+	public Case(int numCase) {
+		setNumCase(numCase);
+	}
+
+	public int getNumCase() {
+		return numCase;
+	}
+
+	public void setNumCase(int numCase) {
+		this.numCase = numCase;
+		
+	}
+
+	public void effet (Joueur j) {
+		// TODO Auto-generated method stub
+		j.setPositiionJoueur(this);
+		System.out.println("votre position :"+ getNumCase());
+		
+	}
+
+	
+	
+}

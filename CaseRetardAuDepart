@@ -1,0 +1,15 @@
+
+public class CaseRetardAuDepart extends Case {
+
+	public CaseRetardAuDepart(int num) {
+		// TODO Auto-generated constructor stub
+		super(num);
+	}
+	
+	@Override
+	public void effet(Joueur j) {
+		
+ 
+	}
+
+}

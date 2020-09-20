@@ -1,0 +1,63 @@
+public class Jeu {
+	Joueur [] joueurs = new Joueur[2];
+	
+	Plateau plateau= new Plateau();
+	
+	
+	public Jeu() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void initJeu(Joueur...joueurs){
+	 for (Joueur j : joueurs ) {
+		int de=(int)(Math.random()*6)+1;
+		//sortir le nombre de pas a faire pour arriver a la case suivante
+		int pas= deplacer(de,j);
+		//gestion de la case
+		Case c=plateau.getCase(pas);
+		c.effet(j);
+		//
+		if(j.gagnant()) 
+			break;
+		}
+	
+	}
+	
+	public void ajouterJoueur(String nom) {
+		int nbJoueurs=0;
+		if(nbJoueurs<joueurs.length) {
+			joueurs[nbJoueurs]=new Joueur(nom, 0 , plateau);
+			nbJoueurs++;
+		}
+	}
+	
+	public int deplacer(int de, Joueur... joueurs) {
+		int pas=0;
+		int premiereLancee=0;
+		
+		for (Joueur j : joueurs ) {
+		//deplacer en fonction de la position de depart
+		if (premiereLancee == 0) {
+			pas=de;
+			premiereLancee++;
+		}	
+		else if (de + j.donnerPosition() > 10) {
+		//retour au depart si position depasse cases
+		pas=1;
+		}
+		else {
+		//
+			pas= de + j.donnerPosition();
+		}
+	
+	}
+		return pas;
+
+	}
+
+	public void jouer() {
+		initJeu(joueurs);
+		
+	}
+	
+}
